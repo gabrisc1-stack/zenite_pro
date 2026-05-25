@@ -3,6 +3,23 @@ import os
 import pandas as pd
 from io import BytesIO
 
+import streamlit as st
+
+st.markdown("""
+<style>
+div[data-baseweb="select"] > div {
+    font-size: 16px;
+}
+
+div[role="listbox"] {
+    max-height: 250px !important;
+    overflow-y: auto !important;
+}
+</style>
+""", unsafe_allow_html=True)
+
+ARQUIVO_EXCEL = r"C:\Users\gabri\OneDrive\Área de Trabalho\automacao_precos\PRECIFICAÇÃO IPHONE.xlsx"
+LOGIN_JSON = r"C:\Users\gabri\OneDrive\Área de Trabalho\automacao_precos\login.json"
 ARQUIVO_EXCEL = r"C:\Users\gabri\OneDrive\Área de Trabalho\automacao_precos\PRECIFICAÇÃO IPHONE.xlsx"
 
 st.set_page_config(
