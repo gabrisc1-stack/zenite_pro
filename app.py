@@ -2,6 +2,10 @@ from playwright.sync_api import sync_playwright
 from openpyxl import load_workbook
 import re
 
+LOGIN_JSON = "login.json"
+
+ARQUIVO_EXCEL = r"app_zenite\PRECIFICAÇÃO IPHONE.xlsx"
+
 produtos = [
     {"modelo": "iPhone 15", "memoria": "128GB"},
     {"modelo": "iPhone 15 Plus", "memoria": "128GB"},
