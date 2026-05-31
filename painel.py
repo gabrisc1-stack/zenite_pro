@@ -14,7 +14,7 @@ ARQUIVO_EXCEL = os.path.join(
     "PRECIFICAÇÃO IPHONE.xlsx"
 )
 
-SCRIPT_ROBO = os.path.join(BASE_DIR, "robo.py")
+SCRIPT_ROBO = os.path.join(BASE_DIR, "app_zenite", "robo.py")
 
 
 st.set_page_config(
