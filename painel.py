@@ -58,6 +58,8 @@ st.subheader("📊 Produtos atualizados")
 df = pd.read_excel(ARQUIVO_EXCEL)
 df = df.fillna(0)
 
+df["GB/TB"] = df["GB/TB"].astype(str)
+
 st.dataframe(df, use_container_width=True)
 
 buffer = BytesIO()
