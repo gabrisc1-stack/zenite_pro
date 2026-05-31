@@ -14,7 +14,7 @@ ARQUIVO_EXCEL = os.path.join(
     "PRECIFICAÇÃO IPHONE.xlsx"
 )
 
-SCRIPT_ROBO = os.path.join(BASE_DIR, "app.py")
+SCRIPT_ROBO = os.path.join(BASE_DIR, "robo.py")
 
 
 st.set_page_config(
