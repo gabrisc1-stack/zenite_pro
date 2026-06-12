@@ -166,7 +166,7 @@ for item in resultados:
     ws[f"B{linha}"] = item["GB/TB"]
     ws[f"C{linha}"] = item["Menor Preço"]
 
-    Menor_Preço = item["menor preço"]
+    menor_preço = item["Menor Preço"]
     sedex = ws[f"D{linha}"].value or 0
     intermediador = ws[f"E{linha}"].value or 0
     nf = ws[f"F{linha}"].value or 0
