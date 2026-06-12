@@ -162,19 +162,7 @@ for linha in range(2, ws.max_row + 1):
 linha = 2
 
 for item in resultados:
-    ws[f"A{linha}"] = item["Modelo"]
-    ws[f"B{linha}"] = item["GB/TB"]
     ws[f"C{linha}"] = item["Menor Preço"]
-
-    menor_preço = float(item["Menor Preço"] or 0)
-    sedex = float(ws[f"D{linha}"].value or 0)
-    intermediador = float(ws[f"E{linha}"].value or 0)
-    nf = menor_preco * 0.01
-    ws[f"F{linha}"] = nf
-    embalagem = float(ws[f"G{linha}"].value or 0)
-    lucro = float(ws[f"H{linha}"].value or 0)
-
-    ws[f"I{linha}"] = menor_preco + sedex + intermediador + nf + embalagem + lucro
     linha += 1
 
 wb.save(ARQUIVO_EXCEL)
