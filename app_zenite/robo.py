@@ -154,11 +154,6 @@ print("TOTAL DE RESULTADOS:", len(resultados))
 wb = load_workbook(ARQUIVO_EXCEL)
 ws = wb.active
 
-for linha in range(2, ws.max_row + 1):
-    ws[f"A{linha}"] = ""
-    ws[f"B{linha}"] = ""
-    ws[f"C{linha}"] = ""
-
 linha = 2
 
 for item in resultados:
