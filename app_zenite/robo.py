@@ -121,6 +121,9 @@ with sync_playwright() as p:
                 if "usado" in bloco or "cpo" in bloco or "seminovo" in bloco:
                     continue
 
+                if modelo.lower() == "iphone 17" and "iphone 17e" in bloco:
+                    continue
+
                 if memoria.lower() not in bloco.lower():
                     continue
 
