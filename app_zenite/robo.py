@@ -166,12 +166,13 @@ for item in resultados:
     ws[f"B{linha}"] = item["GB/TB"]
     ws[f"C{linha}"] = item["Menor Preço"]
 
-    menor_preço = item["Menor Preço"]
-    sedex = ws[f"D{linha}"].value or 0
-    intermediador = ws[f"E{linha}"].value or 0
-    nf = ws[f"F{linha}"].value or 0
-    embalagem = ws[f"G{linha}"].value or 0
-    lucro = ws[f"H{linha}"].value or 0
+    menor_preço = float(item["Menor Preço"] or 0)
+    sedex = float(ws[f"D{linha}"].value or 0)
+    intermediador = float(ws[f"E{linha}"].value or 0)
+    nf = menor_preco * 0.01
+    ws[f"F{linha}"] = nf
+    embalagem = float(ws[f"G{linha}"].value or 0)
+    lucro = float(ws[f"H{linha}"].value or 0)
 
     ws[f"I{linha}"] = menor_preco + sedex + intermediador + nf + embalagem + lucro
     linha += 1
