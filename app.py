@@ -120,7 +120,15 @@ with sync_playwright() as p:
 
                 if "usado" in bloco or "cpo" in bloco or "seminovo" in bloco:
                     continue
+                
+                if modelo.lower() == "iphone 17":
+                    print("BLOCO ACEITO:", bloco)
+                    if not re.search(r"\biphone\s*17\b", bloco):
+                        continue
 
+                    if re.search(r"\biphone\s*17\s*e\b|\b17e\b|iphone\s*17\s*pro|iphone\s*17\s*pro\s*max", bloco):
+                        continue
+                
                 if memoria.lower() not in bloco.lower():
                     continue
 

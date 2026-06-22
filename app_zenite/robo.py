@@ -20,7 +20,6 @@ produtos = [
     {"modelo": "iPhone 16 Pro Max", "memoria": "512GB"},
 
     {"modelo": "iPhone 17", "memoria": "256GB"},
-    {"modelo": "iPhone 17", "memoria": "512GB"},
     {"modelo": "iPhone 17 Pro", "memoria": "256GB"},
     {"modelo": "iPhone 17 Pro", "memoria": "512GB"},
     {"modelo": "iPhone 17 Pro", "memoria": "1TB"},
@@ -121,11 +120,25 @@ with sync_playwright() as p:
                 if "usado" in bloco or "cpo" in bloco or "seminovo" in bloco:
                     continue
 
-                if modelo.lower() == "iphone 17" and "iphone 17e" in bloco:
-                    continue
+                if modelo.lower() == "iphone 17":
+                    bloco_limpo = bloco.lower()
+                    bloco_limpo = bloco_limpo.replace(" ", "")
+                    bloco_limpo = bloco_limpo.replace("-", "")
 
-                if memoria.lower() not in bloco.lower():
-                    continue
+                    if "17e" in bloco_limpo:
+                        continue
+
+                    if "iphone17pro" in bloco_limpo:
+                        continue
+                    
+                    if "iphone17promax" in bloco_limpo:
+                        continue
+                    
+                    if "iphone17" not in bloco_limpo:
+                        continue
+
+                    if memoria.lower() not in bloco.lower():
+                        continue
 
                 texto_filtrado += "\n" + "\n".join(cards[i:i+12])
 

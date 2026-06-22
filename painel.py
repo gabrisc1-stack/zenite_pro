@@ -56,11 +56,34 @@ st.divider()
 st.subheader("📊 Produtos atualizados")
 
 df = pd.read_excel(ARQUIVO_EXCEL)
-df = df.fillna(0)
 
-df["GB/TB"] = df["GB/TB"].astype(str)
+df["Modelo"] = df["Modelo"].fillna("").astype(str)
+df["GB/TB"] = df["GB/TB"].fillna("").astype(str)
 
-st.dataframe(df, use_container_width=True)
+colunas_num = [
+    "Menor_Preço",
+    "SEDEX",
+    "CUSTO INTERMEDIADOR",
+    "CUSTO NF(1%)",
+    "CUSTO EMBALAGEM",
+    "LUCRO"
+]    
+
+for col in colunas_num:
+    df[col] = pd.to_numeric(df[col], errors="coerce").fillna(0)
+
+base = (
+    df["Menor_Preço"] 
+    + df["SEDEX"]
+    + df["CUSTO INTERMEDIADOR"]
+    + df["CUSTO EMBALAGEM"]
+    + df["LUCRO"]
+)
+
+df["VALOR DE VENDA"] = base / 0.99
+df["CUSTO NF(1%)"]= df["VALOR DE VENDA"] * 0.01
+
+st.dataframe(df, width="stretch")
 
 buffer = BytesIO()
 df.to_excel(buffer, index=False)
